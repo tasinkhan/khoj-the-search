@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}User | Create User{% endblock %}
+{% block body_block %}
+<div class="row">
+    <div class="col-12">
+        <div class="card ">
+            <div class="card-header pdn-sm-x-40">
+                <h6>Add New User</h6>
+            </div>
+
+            <div class="card-body pdn-20 pdn-sm-40 pdn-t-20-imp">
+                <div class="pdn-sm-55 pdn-15 bdr">
+                    <div>
+                        <div class="note"><h6>Note: * Required Field</h6></div>
+                    </div>
+                    <form method="POST" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                        <div class="form-group required row">
+                            <label for="username" class="col-md-2 control-label col-form-label" >Username : </label>
+                            <div class="form-group  col-md-4">
+                                {{form.username}}
+                                <div class="invalid-username-feedback text-danger" style="display: none;"></div>
+                            </div>
+
+                            <label for="email" class="col-md-2 col-form-label control-label">Email : </label>
+                            <div class="form-group col-md-4">
+                                {{form.email}}
+                                <div class="invalid-name-feedback text-danger" style="display: none;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group required row">
+                            <label for="contact_no" class="col-md-2 col-form-label control-label">Contact No. : </label>
+                            <div class="form-group col-md-4">
+                                {{form.contact_no}}
+                                <div class="invalid-name-feedback text-danger" style="display: none;"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group required row">
+                            <label for="password1" class="col-md-2 col-form-label control-label">Password : </label>
+                            <div class="form-group col-md-4">
+                                {{form.password1}}
+                            </div>
+                            
+                            <label for="password2" class="col-md-2 col-form-label control-label">Confirm Password : </label>
+                            <div class="form-group col-md-4">
+                                {{form.password2}}
+                            </div>   
+                        </div>
+                        <div class="form-group row d-flex justify-content-center"  >
+                            <button type="submit" class="btn btn-lg btn-success ml-3 my-4 col-md-2 ">
+                            Register
+                        </button>
+                        </div>
+                        </div>
+                    </form>
+                    <div>{{ form.errors }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

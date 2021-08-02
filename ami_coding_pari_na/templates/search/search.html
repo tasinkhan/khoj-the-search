@@ -1,0 +1,75 @@
+{% extends 'base.html '%}
+{% block title_block %} Search {% endblock %}
+{% block body_block %}
+<!-- <div class="row">
+    <div class="col-12">
+        <div class="card ">
+            <div class="card-header pdn-sm-x-40">
+                <h6>Khoj the search</h6>
+            </div>
+
+            <div class="card-body pdn-20 pdn-sm-40 pdn-t-20-imp">
+                <div class="pdn-sm-55 pdn-15 bdr">
+                    <form method="POST" enctype="multipart/form-data" >
+                        {% csrf_token %}
+                        <div class="form-group required row">
+                            <label for="input_data" class="col-md-2 control-label col-form-label" >Input : </label>
+                            <div class="form-group  col-md-4">
+                                {{form.input}}
+                                <div class="invalid-username-feedback text-danger" style="display: none;"></div>
+                            </div>
+
+                            <label for="email" class="col-md-2 col-form-label control-label">Email : </label>
+                            <div class="form-group col-md-4">
+                                
+                                <div class="invalid-name-feedback text-danger" style="display: none;"></div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-group row d-flex justify-content-center"  >
+                            <button type="submit" class="btn btn-lg btn-success ml-3 my-4 col-md-2 ">
+                            Search
+                        </button>
+                        </div>
+                        </div>
+                    </form>
+                    <div>{{ form.errors }}</div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="container mw-20">
+        <div id="app">
+            <div class="login-form">
+                <div class="card ">
+                    <div class="card-body">
+                        
+                        <h6 class="text-center mb-3">Sign in to your account</h6>
+                        <form action="{% url 'Search:search' %}" method="POST" enctype="multipart/form-data" autocomplete="off">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="input_values" id="input_values" placeholder="Input Values" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="search_value" id="search_value" placeholder="Search Value" >
+                            </div>
+                            <div class="form-group my-3 row">
+                                <div class="col-12 text-right">
+                                    <input type="submit" class="btn btn-primary btn-block" value="Khoj">
+                                </div>
+                            </div>
+                            {% if result != None %}
+                            <div class="result">
+                                <h2>Result: {{result}}</h2>
+                            </div>
+                            {% endif %}
+                        </form>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
